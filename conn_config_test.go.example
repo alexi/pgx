@@ -8,7 +8,7 @@ import (
 	// "io/ioutil"
 	// "path"
 
-	"github.com/jackc/pgx"
+	"github.com/alexi/pgx"
 )
 
 var defaultConnConfig *pgx.ConnConfig = &pgx.ConnConfig{Host: "127.0.0.1", User: "pgx_md5", Password: "secret", Database: "pgx_test"}
@@ -51,7 +51,7 @@ var cratedbConnConfig *pgx.ConnConfig = nil
 // 	}
 // 	caCertPool := x509.NewCertPool()
 //
-// 	caPath := path.Join(homeDir, "/src/github.com/jackc/pgx/rootCA.pem")
+// 	caPath := path.Join(homeDir, "/src/github.com/alexi/pgx/rootCA.pem")
 // 	caCert, err := ioutil.ReadFile(caPath)
 // 	if err != nil {
 // 		panic(fmt.Sprintf("unable to read CA file: %v", err))
@@ -64,8 +64,8 @@ var cratedbConnConfig *pgx.ConnConfig = nil
 // 	tlsConnConfig.TLSConfig.RootCAs = caCertPool
 // 	tlsConnConfig.TLSConfig.ClientCAs = caCertPool
 //
-// 	sslCert := path.Join(homeDir, "/src/github.com/jackc/pgx/pg_md5.crt")
-// 	sslKey := path.Join(homeDir, "/src/github.com/jackc/pgx/pg_md5.key")
+// 	sslCert := path.Join(homeDir, "/src/github.com/alexi/pgx/pg_md5.crt")
+// 	sslKey := path.Join(homeDir, "/src/github.com/alexi/pgx/pg_md5.key")
 // 	if (sslCert != "" && sslKey == "") || (sslCert == "" && sslKey != "") {
 // 		panic(`both "sslcert" and "sslkey" are required`)
 // 	}

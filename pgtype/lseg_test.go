@@ -3,8 +3,8 @@ package pgtype_test
 import (
 	"testing"
 
-	"github.com/jackc/pgx/pgtype"
-	"github.com/jackc/pgx/pgtype/testutil"
+	"github.com/alexi/pgx/pgtype"
+	"github.com/alexi/pgx/pgtype/testutil"
 )
 
 func TestLsegTranscode(t *testing.T) {

@@ -3,8 +3,8 @@ package pgx
 import (
 	"context"
 
-	"github.com/jackc/pgx/pgproto3"
-	"github.com/jackc/pgx/pgtype"
+	"github.com/alexi/pgx/pgproto3"
+	"github.com/alexi/pgx/pgtype"
 )
 
 type batchItem struct {
@@ -76,7 +76,7 @@ func (b *Batch) Queue(query string, arguments []interface{}, parameterOIDs []pgt
 // will not be able to finish sending the queries and PostgreSQL will not be
 // able to finish sending the responses.
 //
-// See https://github.com/jackc/pgx/issues/374.
+// See https://github.com/alexi/pgx/issues/374.
 func (b *Batch) Send(ctx context.Context, txOptions *TxOptions) error {
 	if b.err != nil {
 		return b.err

@@ -7,7 +7,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/jackc/pgx/pgtype"
+	"github.com/alexi/pgx/pgtype"
 )
 
 type ConnPoolConfig struct {
@@ -93,6 +93,26 @@ func NewConnPool(config ConnPoolConfig) (p *ConnPool, err error) {
 	p.connInfo = c.ConnInfo.DeepCopy()
 
 	return
+}
+
+func (p *ConnPool) GetConfig() ConnConfig {
+	return p.config
+}
+
+// Changes maxConnections in connection pool. Release checks maxConnections before
+// re-adding to pool and acquire checks before creating new connections, so connection
+// pool size will change procedurally.
+func (p *ConnPool) SetMaxConnections(maxConnections int) (err error) {
+	p.cond.L.Lock()
+	defer p.cond.L.Unlock()
+	p.maxConnections = maxConnections
+	if p.maxConnections == 0 {
+		p.maxConnections = 5
+	}
+	if p.maxConnections < 1 {
+		return errors.New("MaxConnections must be at least 1")
+	}
+	return nil
 }
 
 // Acquire takes exclusive use of a connection until it is released.

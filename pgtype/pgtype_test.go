@@ -4,7 +4,7 @@ import (
 	"net"
 	"testing"
 
-	_ "github.com/jackc/pgx/stdlib"
+	_ "github.com/alexi/pgx/stdlib"
 	_ "github.com/lib/pq"
 )
 

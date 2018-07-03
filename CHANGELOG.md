@@ -84,7 +84,7 @@
 * Conn.WaitForNotification now takes context.Context instead of time.Duration for cancellation support.
 * Conn.WaitForNotification no longer automatically pings internally every 15 seconds.
 * ReplicationConn.WaitForReplicationMessage now takes context.Context instead of time.Duration for cancellation support.
-* Reject scanning binary format values into a string (e.g. binary encoded timestamptz to string). See https://github.com/jackc/pgx/issues/219 and https://github.com/jackc/pgx/issues/228
+* Reject scanning binary format values into a string (e.g. binary encoded timestamptz to string). See https://github.com/alexi/pgx/issues/219 and https://github.com/alexi/pgx/issues/228
 * No longer can read raw bytes of any value into a []byte. Use pgtype.GenericBinary if this functionality is needed.
 * Remove CopyTo (functionality is now in CopyFrom)
 * OID constants moved from pgx to pgtype package

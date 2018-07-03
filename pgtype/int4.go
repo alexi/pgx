@@ -7,7 +7,7 @@ import (
 	"math"
 	"strconv"
 
-	"github.com/jackc/pgx/pgio"
+	"github.com/alexi/pgx/pgio"
 	"github.com/pkg/errors"
 )
 
